@@ -1,10 +1,12 @@
 import "./App.css"
 import Calendar from "./Components/Calendar";
 
-function App() {
+function App(props) {
     return (
         <div className="App">
-            <Calendar/>
+            <div className="wrapper">
+                <Calendar state={props.store.state}/>
+            </div>
         </div>
     );
 }

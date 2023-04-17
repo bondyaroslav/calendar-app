@@ -1,6 +1,31 @@
-const date1 = new Date('December 17, 1995 03:24:00')
+let store = {
 
-console.log(date1)
+    state: {
+        calendarDay: [
+            {dayNumber: 1},
+            {dayName: "Monday"}
+        ],
+        dates: [
 
+        ],
+    },
+
+    // getAllDates() {
+    //     let date = new Date()
+    //     let today = date.getDate()
+    //
+    //     store.state.dates.push(today)
+    // },
+
+    dataCreator() {
+        let date = new Date()
+        console.log(date.getMonth())
+
+        // for () {
+        //
+        // }
+    }
+
+}
 
 export default store;

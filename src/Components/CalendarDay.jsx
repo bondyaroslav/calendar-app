@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./CalendarDay.module.css"
 
-const CalendarDay = () => {
+const CalendarDay = (props) => {
     return (
         <div className={styles.CalendarDay}>
-            <p>Day</p>
+            <p>Day {props.dates}</p>
         </div>
     )
 }

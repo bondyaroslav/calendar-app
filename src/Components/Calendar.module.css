@@ -1,4 +1,5 @@
 .Calendar {
     display: flex;
     flex-wrap: wrap;
+    background-color: lightgrey;
 }
