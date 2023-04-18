@@ -14,6 +14,7 @@ export const rerenderAllTree = () => {
 
 rerenderAllTree()
 
-// store.getAllDates()
 
-store.dataCreator()
+store.fillDatesInState()
+store.getDaysInMonth()
+store.getDates()
