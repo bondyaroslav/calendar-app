@@ -17,4 +17,5 @@ rerenderAllTree()
 
 store.fillDatesInState()
 store.getDaysInMonth()
-store.getDates()
+store.showDates()
+

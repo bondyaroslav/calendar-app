@@ -1,9 +1,7 @@
 let store = {
 
     state: {
-        dates: [
-
-        ],
+        dates: [],
     },
 
     getDaysInMonth() {
@@ -19,7 +17,7 @@ let store = {
         }
     },
 
-    getDates() {
+    showDates() {
         console.log(store.state.dates)
     }
 

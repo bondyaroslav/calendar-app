@@ -1,5 +1,11 @@
 .Calendar {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     background-color: lightgrey;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
