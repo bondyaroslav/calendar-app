@@ -7,7 +7,7 @@ const Calendar = (props) => {
     let state = props.state
 
     let datesElements = state.dates.map( date => {
-        return <CalendarDay dates={state.dates}/>
+        return <CalendarDay dates={date}/>
 
     } )
 

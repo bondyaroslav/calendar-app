@@ -12,6 +12,4 @@ export const rerenderAllTree = (state) => {
 
 rerenderAllTree()
 
-
 store.fillDatesInState()
-store.getDaysInMonth()
