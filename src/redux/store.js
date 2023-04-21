@@ -2,6 +2,7 @@ let store = {
 
     state: {
         dates: [],
+
     },
 
     getDaysInMonth() {

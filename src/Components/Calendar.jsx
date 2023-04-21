@@ -4,14 +4,12 @@ import CalendarDay from "./CalendarDay";
 
 const Calendar = (props) => {
 
-    // const showDates = () => {
-    //     for (let i = props.state.dates.length = 0; i < props.state.dates; i++) {
-    //         <CalendarDay date={i}/>
-    //     }
-    // }
+    let state = props.state
 
+    let datesElements = state.dates.map( date => {
+        return <CalendarDay dates={state.dates}/>
 
-    let datesElements = props.state.dates.map(date => <CalendarDay dates={date.dates}/>)
+    } )
 
     return (
         <div className={styles.Calendar}>

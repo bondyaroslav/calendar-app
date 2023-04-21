@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import store from "./redux/store";
 
-export const rerenderAllTree = () => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+export const rerenderAllTree = (state) => {
     root.render(
-        <React.StrictMode>
-            <App store={store}/>
-        </React.StrictMode>
+        <App state={state} store={store}/>
     );
 }
 
@@ -17,5 +15,3 @@ rerenderAllTree()
 
 store.fillDatesInState()
 store.getDaysInMonth()
-store.showDates()
-
