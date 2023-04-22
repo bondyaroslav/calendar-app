@@ -2,7 +2,9 @@ let store = {
 
     state: {
         dates: [],
-
+        // day: {
+        //
+        // }
     },
 
     fillDatesInState() {
@@ -20,7 +22,6 @@ let store = {
             store.state.dates.push(i)
         }
     },
-
 }
 
 export default store;
