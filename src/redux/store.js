@@ -2,15 +2,24 @@ let store = {
 
     state: {
         dates: [],
-        // day: {
-        //
-        // }
+        day: {
+            task: {
+                id: 1,
+                name: "",
+                checked: false
+            },
+            number: "",
+            name: ""
+        },
+        year: [],
+        month: []
     },
 
     fillDatesInState() {
         let date = new Date()
 
         let thisYear = date.getFullYear()
+        store.state.year.push(thisYear)
         let thisMonth = date.getMonth()
         let nextMonth = thisMonth + 1
 
@@ -22,6 +31,7 @@ let store = {
             store.state.dates.push(i)
         }
     },
+
 }
 
 export default store;

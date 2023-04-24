@@ -8,12 +8,11 @@ const Calendar = (props) => {
 
     let datesElements = state.dates.map( date => {
         return <CalendarDay dates={date}/>
-
     } )
 
     return (
         <div className={styles.Calendar}>
-            <div className={styles.wrapper}>{datesElements}</div>
+            <div className={styles.wrapper} >{datesElements}</div>
         </div>
     )
 }
