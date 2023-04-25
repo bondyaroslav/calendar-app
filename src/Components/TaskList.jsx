@@ -8,7 +8,10 @@ const TaskList = (props) => {
     if (shown === true) {
         return (
             <div className={styles.TaskList}>
-                <p>Task List</p>
+                <div className={styles.wrapper}>
+                    <p>Task List</p>
+                    <button className={styles.button}>x</button>
+                </div>
                 <input placeholder={"enter new task"}/>
                 <ul>
                     <li>Task</li>

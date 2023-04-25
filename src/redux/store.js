@@ -2,17 +2,19 @@ let store = {
 
     state: {
         dates: [],
-        day: {
+        calendarDay: {
             task: {
                 id: 1,
                 name: "",
                 checked: false
             },
-            number: "",
-            name: ""
+            number: null,
+            name: null
         },
+
         year: [],
-        month: []
+        month: [],
+        day: []
     },
 
     fillDatesInState() {
@@ -21,7 +23,11 @@ let store = {
         let thisYear = date.getFullYear()
         store.state.year.push(thisYear)
         let thisMonth = date.getMonth()
+        store.state.month.push(thisMonth + 1)
         let nextMonth = thisMonth + 1
+
+        let thisDay = date.getDate()
+        store.state.day.push(thisDay)
 
         let date1 = new Date(thisYear, thisMonth, 1)
         let date2 = new Date(thisYear, nextMonth, 1)
