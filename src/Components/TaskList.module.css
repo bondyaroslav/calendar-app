@@ -21,3 +21,8 @@
     width: 25px;
     height: 25px;
 }
+
+.taskWrapper {
+    display: flex;
+    flex-direction: row;
+}
