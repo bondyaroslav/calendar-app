@@ -3,20 +3,19 @@ import styles from "./TaskList.module.css"
 
 const TaskList = (props) => {
 
-    let activeDayId = props.activeDayId
+    let isShown = props.isShown
 
-    if (activeDayId) {
+    if (isShown) {
         return (
             <div className={styles.TaskList}>
                 <div className={styles.wrapper}>
                     <p>Task List</p>
-                    <p>{activeDayId}</p>
                     <button className={styles.button}>x</button>
                 </div>
                 <input placeholder={"enter new task"}/>
                 <ul>
                     <li className={styles.taskWrapper}>
-                        <input type="checkbox"/><p>Task</p>
+                        <input type="checkbox"/><p>{props.tasks.id}{props.tasks.name}</p>
                     </li>
                 </ul>
             </div>

@@ -1,15 +1,11 @@
 import "./App.css"
 import React from "react";
+import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import ThisDate from "./Components/ThisDate";
 
 function App(props) {
-
-    let activeDayId
-    const setActiveDay = (activeId) => {
-        activeDayId = activeId
-    }
 
     return (
         <div className="App">
@@ -17,7 +13,7 @@ function App(props) {
             <div className="calendar-wrapper">
                 <Calendar state={props.store.state}/>
             </div>
-            <TaskList activeDayId={activeDayId}/>
+            <TaskList isShown={true} tasks={props.state.calendarDay.tasks}/>
         </div>
     );
 }

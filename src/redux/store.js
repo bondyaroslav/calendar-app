@@ -1,21 +1,20 @@
 let store = {
-
     state: {
-        dates: [],
         calendarDay: {
-            task: {
-                id: 1,
-                name: "",
-                checked: false
-            },
-            number: null,
-            name: null
+            tasks: [
+                {id: 1, name: "task1", checked: false},
+                // {id: 2, name: "task2", checked: true},
+                // {id: 3, name: "task3", checked: false}
+            ],
         },
 
+        dates: [],
         year: [],
         month: [],
-        day: []
+        day: [],
     },
+
+
 
     fillDatesInState() {
         let date = new Date()
@@ -36,8 +35,20 @@ let store = {
         for (let i = 1; i <= date3; i++) {
             store.state.dates.push(i)
         }
+        //this.setDates(thisYear, thisMonth, thisDay)
     },
 
+    // setDates(thisYear, thisMonth, thisDay) {
+    //     let currentDate = [
+    //         {year: thisYear},
+    //         {month: thisMonth},
+    //         {day: thisDay},
+    //
+    //     ]
+    // },
+
+
 }
+
 
 export default store;
