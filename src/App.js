@@ -7,13 +7,24 @@ import ThisDate from "./Components/ThisDate";
 
 function App(props) {
 
+    const [shown, setShown] = useState(false)
+
+    const showTaskList = () => {
+        if (shown >= true) {
+            return 0
+        } else {
+            setShown(shown + true)
+        }
+    }
+
     return (
         <div className="App">
             <ThisDate year={props.store.state.year} month={props.store.state.month} day={props.store.state.day} />
             <div className="calendar-wrapper">
-                <Calendar state={props.store.state}/>
+                <Calendar state={props.store.state} showTaskList={showTaskList}/>
             </div>
-            <TaskList isShown={true} tasks={props.state.calendarDay.tasks}/>
+            {/*<button onClick={showTaskList}>show TL</button>*/}
+            <TaskList shown={shown}/>
         </div>
     );
 }

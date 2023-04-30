@@ -1,12 +1,14 @@
 let store = {
     state: {
-        calendarDay: {
-            tasks: [
-                {id: 1, name: "task1", checked: false},
-                // {id: 2, name: "task2", checked: true},
-                // {id: 3, name: "task3", checked: false}
-            ],
-        },
+        // calendarDay: {
+        //
+        // },
+
+        tasks: [
+            {id: 1, name: "task1", checked: false},
+            // {id: 2, name: "task2", checked: true},
+            // {id: 3, name: "task3", checked: false}
+        ],
 
         dates: [],
         year: [],

@@ -3,9 +3,7 @@ import styles from "./TaskList.module.css"
 
 const TaskList = (props) => {
 
-    let isShown = props.isShown
-
-    if (isShown) {
+     if (props.shown == true) {
         return (
             <div className={styles.TaskList}>
                 <div className={styles.wrapper}>
@@ -15,12 +13,12 @@ const TaskList = (props) => {
                 <input placeholder={"enter new task"}/>
                 <ul>
                     <li className={styles.taskWrapper}>
-                        <input type="checkbox"/><p>{props.tasks.id}{props.tasks.name}</p>
+                        <input type="checkbox"/><p>task 1</p>
                     </li>
                 </ul>
             </div>
         )
-    } else return (<div></div>)
+     } else return (<div></div>)
 }
 
 export default TaskList
