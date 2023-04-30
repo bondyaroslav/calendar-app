@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./TaskList.module.css"
+import TaskListItem from "./TaskListItem";
 
 const TaskList = (props) => {
 
@@ -8,14 +9,10 @@ const TaskList = (props) => {
             <div className={styles.TaskList}>
                 <div className={styles.wrapper}>
                     <p>Task List</p>
-                    <button className={styles.button}>x</button>
+                    <button className={styles.button} onClick={props.closeTaskList}>x</button>
                 </div>
                 <input placeholder={"enter new task"}/>
-                <ul>
-                    <li className={styles.taskWrapper}>
-                        <input type="checkbox"/><p>task 1</p>
-                    </li>
-                </ul>
+                <TaskListItem task={props.task.id} />
             </div>
         )
      } else return (<div></div>)
