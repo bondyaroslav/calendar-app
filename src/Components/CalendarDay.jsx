@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CalendarDay.module.css"
 
-const CalendarDay = (props) => {
+const CalendarDay = ({dates, showTaskList, year, month}) => {
 
     return (
-        <div className={styles.CalendarDay} onClick={props.showTaskList}>
-            <p>Day {props.dates} </p>
+        <div className={styles.CalendarDay} onClick={showTaskList}>
+            <p>Day {dates} </p>
         </div>
     )
 }

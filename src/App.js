@@ -1,5 +1,5 @@
-import "./App.css"
 import React from "react";
+import "./App.css"
 import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
@@ -14,6 +14,7 @@ function App(props) {
             return 0
         } else {
             setShown(shown + true)
+            getTaskId()
         }
     }
 
@@ -25,26 +26,43 @@ function App(props) {
         }
     }
 
-    const [tasks, setTasks] = useState( [
-        {id: 1, name: "task1", status: false},
-        {id: 2, name: "task2", status: false},
-        {id: 3, name: "task3", status: false}
-    ] )
+    const getTaskId = () => {
+        let date =  props.dates + props.month + props.year
+        setId(id + date)
+    }
 
-    let taskElement = tasks.map( task => <TaskList id={task.id} name={task.name} status={task.status}/> )
+
+
+    const [id, setId] = useState()
+
+    const [status, setStatus] = useState()
+
+    const changeStatus = () => {
+        if (status == true) {
+            setStatus(status - true)
+            console.log(status)
+        } else {
+            setStatus(status + true)
+            console.log(status)
+        }
+    }
+
+
+    const [tasks, setTasks] = useState([
+            {id: 1, name: "task1", status: true},
+            {id: 2, name: "task2", status: true},
+            {id: 3, name: "task3", status: false}
+        ])
 
     return (
         <div className="App">
-            <ThisDate year={props.store.state.year} month={props.store.state.month} day={props.store.state.day} />
+            <ThisDate year={props.store.state.year} month={props.store.state.month} day={props.store.state.day}/>
             <div className="calendar-wrapper">
                 <Calendar state={props.store.state} showTaskList={showTaskList}/>
             </div>
-            <TaskList shown={shown} closeTaskList={closeTaskList} task={taskElement}/>
+            <TaskList shown={shown} closeTaskList={closeTaskList} changeStatus={changeStatus} tasks={tasks}/>
         </div>
     );
 }
 
 export default App;
-
-// let tasksElements = props.state.calendarDay.tasks.map( task =>
-//     <TaskList id={task.id} name={task.name} status={task.status}/> )

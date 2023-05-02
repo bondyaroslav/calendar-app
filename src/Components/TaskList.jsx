@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./TaskList.module.css"
-import TaskListItem from "./TaskListItem";
+import Task from "./Task";
+import task from "./Task";
 
 const TaskList = (props) => {
 
-     if (props.shown == true) {
+    let tasksElement = props.tasks.map( task => <Task id={task.id} name={task.name} status={task.status} changeStatus={props.changeStatus}/> )
+
+    if (props.shown == true) {
         return (
             <div className={styles.TaskList}>
                 <div className={styles.wrapper}>
@@ -12,10 +15,12 @@ const TaskList = (props) => {
                     <button className={styles.button} onClick={props.closeTaskList}>x</button>
                 </div>
                 <input placeholder={"enter new task"}/>
-                <TaskListItem task={props.task.id} />
+                <ul className={styles.ul}>
+                    {tasksElement}
+                </ul>
             </div>
         )
-     } else return (<div></div>)
+    } else return (<div></div>)
 }
 
 export default TaskList
