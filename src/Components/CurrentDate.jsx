@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./ThisDate.module.css"
+import styles from "./CurrentDate.module.css"
 
-const ThisDate = (props) => {
+const CurrentDate = (props) => {
 
     return (
         <div className={styles.ThisDate}>
@@ -10,4 +10,4 @@ const ThisDate = (props) => {
     )
 }
 
-export default ThisDate
+export default CurrentDate

@@ -7,7 +7,9 @@ const Calendar = (props) => {
     let state = props.state
 
     let datesElements = state.dates.map( date => {
-        return <CalendarDay dates={date} showTaskList={props.showTaskList} year={state.year} month={state.month}/>
+        return <CalendarDay dates={date}
+                            onDateClick={props.handleDateClick}
+        />
     } )
 
     return (

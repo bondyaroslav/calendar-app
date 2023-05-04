@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./TaskList.module.css"
 import Task from "./Task";
-import task from "./Task";
 
 const TaskList = (props) => {
 
-    let tasksElement = props.tasks.map( task => <Task id={task.id} name={task.name} status={task.status} changeStatus={props.changeStatus}/> )
+    let tasksElement = props.tasks.map(task =>
+        <Task key={task.id} id={task.id} name={task.name} status={task.status} />
+    );
 
     if (props.shown == true) {
         return (
