@@ -13,6 +13,7 @@ const TaskList = (props) => {
             <div className={styles.TaskList}>
                 <div className={styles.wrapper}>
                     <p>Task List</p>
+                    <p>{props.selectedDay}</p>
                     <button className={styles.button} onClick={props.closeTaskList}>x</button>
                 </div>
                 <input placeholder={"enter new task"}/>

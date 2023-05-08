@@ -11,13 +11,12 @@ function App(props) {
 
     const [shown, setShown] = useState(false)
     const showTaskList = () => {
-        if (shown === true) {
+        if (shown >= true) {
             return 0
         } else {
             setShown(shown + true)
         }
     }
-
     const closeTaskList = () => {
         if (shown !== true) {
             setShown(shown - true)
@@ -26,17 +25,27 @@ function App(props) {
         }
     }
 
+    const [selectedDay, setSelectedDay] = useState(null)
+
+    const chooseSelectDay = (dates) => {
+        setSelectedDay(dates)
+    }
+
+    const handleDateClick = (dates) => {
+        showTaskList()
+        chooseSelectDay(dates)
+    }
+
     const [tasks, setTasks] = useState(state.calendarDay.tasks)
 
-    const [selectedDate, setSelectedDate] = useState(null)
-    const handleDateClick = (dates) => {
-        setSelectedDate(dates)
-        showTaskList()
-    }
+
 
     return (
         <div className="App">
-            <CurrentDate year={props.store.state.currentDate.year} month={props.store.state.currentDate.month} day={props.store.state.currentDate.day}/>
+            <CurrentDate year={props.store.state.currentDate.year}
+                         month={props.store.state.currentDate.month}
+                         day={props.store.state.currentDate.day}
+            />
             <div className="calendar-wrapper">
                 <Calendar state={props.store.state}
                           handleDateClick={handleDateClick}
@@ -45,8 +54,8 @@ function App(props) {
             </div>
             <TaskList shown={shown}
                       tasks={tasks}
-                      selectedDate={selectedDate}
                       closeTaskList={closeTaskList}
+                      selectedDay={selectedDay}
             />
         </div>
     );

@@ -15,7 +15,7 @@ let store = {
                 {
                     id: 2,
                     name: "task2",
-                    checked: true,
+                    status: true,
                     date: {
                         day: 1,
                         month: 5,
@@ -25,7 +25,7 @@ let store = {
                 {
                     id: 3,
                     name: "task3",
-                    checked: false,
+                    status: false,
                     date: {
                         day: 2,
                         month: 5,

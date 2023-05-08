@@ -6,11 +6,7 @@ const Calendar = (props) => {
 
     let state = props.state
 
-    let datesElements = state.dates.map( date => {
-        return <CalendarDay dates={date}
-                            onDateClick={props.handleDateClick}
-        />
-    } )
+    let datesElements = state.dates.map( date  => <CalendarDay dates={date} handleDateClick={props.handleDateClick}/>)
 
     return (
         <div className={styles.Calendar}>
