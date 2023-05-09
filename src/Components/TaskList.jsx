@@ -4,9 +4,19 @@ import Task from "./Task";
 
 const TaskList = (props) => {
 
+    // const dayId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+    let taskId
+    let tasksId = props.tasks.map( task => taskId = task.id )
+
+    const filteredTasks = tasksId.filter(id => id === props.selectedDay);
+    console.log(filteredTasks);
+
     let tasksElement = props.tasks.map(task =>
-        <Task key={task.id} id={task.id} name={task.name} status={task.status} />
+        <Task key={task.id} id={task.id} name={task.name} status={task.status}/>
     );
+
+
 
     if (props.shown == true) {
         return (
@@ -18,7 +28,8 @@ const TaskList = (props) => {
                 </div>
                 <input placeholder={"enter new task"}/>
                 <ul className={styles.ul}>
-                    {tasksElement}
+                    {/*{tasksElement}*/}
+                    {filteredTasks}
                 </ul>
             </div>
         )
@@ -26,3 +37,6 @@ const TaskList = (props) => {
 }
 
 export default TaskList
+
+
+//
