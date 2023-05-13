@@ -11,15 +11,15 @@ function App(props) {
 
     const [shown, setShown] = useState(false)
     const showTaskList = () => {
-        if (shown >= true) {
-            return 0
+        if (shown === false) {
+            setShown(true)
         } else {
-            setShown(shown + true)
+            return 0
         }
     }
     const closeTaskList = () => {
-        if (shown !== true) {
-            setShown(shown - true)
+        if (shown === true) {
+            setShown(false)
         } else {
             return 0
         }
@@ -36,9 +36,11 @@ function App(props) {
         chooseSelectDay(dates)
     }
 
-    const [tasks, setTasks] = useState(state.calendarDay.tasks)
+    const [tasks, setTasks] = useState(state.tasks)
 
+    const addTask = (event) => {
 
+    }
 
     return (
         <div className="App">

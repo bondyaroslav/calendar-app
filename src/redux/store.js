@@ -1,39 +1,47 @@
 let store = {
     state: {
-        calendarDay: {
-            tasks: [
-                {
-                    id: 1,
-                    name: "task1",
-                    status: false,
-                    date: {
-                        day: 1,
-                        month: 5,
-                        year: 2023
-                    }
-                },
-                {
-                    id: 2,
-                    name: "task2",
-                    status: true,
-                    date: {
-                        day: 1,
-                        month: 5,
-                        year: 2023
-                    }
-                },
-                {
-                    id: 3,
-                    name: "task3",
-                    status: false,
-                    date: {
-                        day: 2,
-                        month: 5,
-                        year: 2023
-                    }
+        tasks: [
+            {
+                id: 1,
+                name: "task1",
+                status: false,
+                date: {
+                    day: 1,
+                    month: 5,
+                    year: 2023
                 }
-            ],
-        },
+            },
+            {
+                id: 2,
+                name: "task2",
+                status: true,
+                date: {
+                    day: 1,
+                    month: 5,
+                    year: 2023
+                }
+            },
+            {
+                id: 3,
+                name: "task3",
+                status: false,
+                date: {
+                    day: 2,
+                    month: 5,
+                    year: 2023
+                }
+            },
+            {
+                id: 4,
+                name: "task4",
+                status: false,
+                date: {
+                    day: 2,
+                    month: 5,
+                    year: 2023
+                }
+            },
+        ],
 
         dates: [],
 
