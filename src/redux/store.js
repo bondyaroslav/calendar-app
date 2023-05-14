@@ -71,18 +71,7 @@ let store = {
         for (let i = 1; i <= date3; i++) {
             store.state.dates.push(i)
         }
-        //this.setDates(thisYear, thisMonth, thisDay)
     },
-
-    // setDates(thisYear, thisMonth, thisDay) {
-    //     let currentDate = [
-    //         {year: thisYear},
-    //         {month: thisMonth},
-    //         {day: thisDay},
-    //
-    //     ]
-    // },
-
 
 }
 

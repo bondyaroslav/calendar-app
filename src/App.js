@@ -38,8 +38,8 @@ function App(props) {
 
     const [tasks, setTasks] = useState(state.tasks)
 
-    const addTask = (event) => {
-
+    const handleAddNewTask = (newTask) => {
+        setTasks(newTask)
     }
 
     return (
@@ -56,8 +56,10 @@ function App(props) {
             </div>
             <TaskList shown={shown}
                       tasks={tasks}
+                      setTasks={setTasks}
                       closeTaskList={closeTaskList}
                       selectedDay={selectedDay}
+                      currentDate={props.store.state.currentDate}
             />
         </div>
     );
