@@ -10,9 +10,13 @@ const TaskList = (props) => {
         <Task key={task.id} id={task.id} name={task.name} status={task.status}/>
     );
 
+    //tasks
     const [name, setName] = useState("")
-
     const [id, setId] = useState(5)
+
+    const addTaskName = (event) => {
+        setName(event.target.value)
+    }
 
     const addTaskId = () => {
         setId(id + 1)
@@ -31,8 +35,10 @@ const TaskList = (props) => {
             }
         }
         console.log(newTask)
-        //props.setTasks([...props.tasks, newTask])
+        // props.setTasks([...props.tasks, newTask])
         store.state.tasks.push(newTask)
+        setName("")
+
     }
 
     if (props.shown === true) {
@@ -44,7 +50,7 @@ const TaskList = (props) => {
                     <button className={styles.button} onClick={props.closeTaskList}>x</button>
                 </div>
                 <div>
-                    <input placeholder={"enter new task"} value={name} onChange={ event => setName(event.target.value) }/>
+                    <input placeholder={"enter new task"} value={name} onChange={ event => addTaskName(event) }/>
                     <button onClick={ () => {addNewTask()} }>add task</button>
                 </div>
                 <ul className={styles.ul}>

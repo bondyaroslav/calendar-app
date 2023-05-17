@@ -7,7 +7,6 @@ const Task = (props) => {
         <li className={styles.li}>
             <input type="checkbox" checked={props.status} onChange={ () => {} }/>
             <p>{props.name} </p>
-            <p>{props.key}</p>
         </li>
 
     )

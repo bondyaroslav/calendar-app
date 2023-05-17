@@ -60,6 +60,7 @@ function App(props) {
                       closeTaskList={closeTaskList}
                       selectedDay={selectedDay}
                       currentDate={props.store.state.currentDate}
+                      handleAddNewTask={handleAddNewTask}
             />
         </div>
     );
