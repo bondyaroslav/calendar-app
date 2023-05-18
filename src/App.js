@@ -4,6 +4,7 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
+import task from "./Components/Task";
 
 function App(props) {
 
@@ -37,10 +38,24 @@ function App(props) {
     }
 
     const [tasks, setTasks] = useState(state.tasks)
+    const [status, setStatus] = useState()
 
-    const handleAddNewTask = (newTask) => {
-        setTasks(newTask)
+    const changeTaskStatus = (value, id) => {
+
+        let tasksId = tasks.map(task => )
+        console.log(tasksId)
+        if (value === "on") {
+            setStatus(true)
+            console.log(status)
+        } else {
+            setStatus(false)
+            console.log(status)
+        }
     }
+
+    // const handleAddNewTask = (newTask) => {
+    //     setTasks(newTask)
+    // }
 
     return (
         <div className="App">
@@ -60,7 +75,7 @@ function App(props) {
                       closeTaskList={closeTaskList}
                       selectedDay={selectedDay}
                       currentDate={props.store.state.currentDate}
-                      handleAddNewTask={handleAddNewTask}
+                      changeTaskStatus={changeTaskStatus}
             />
         </div>
     );

@@ -7,7 +7,7 @@ const TaskList = (props) => {
 
     let tasksElement = props.tasks.map(task =>
         task.date.day === props.selectedDay &&
-        <Task key={task.id} id={task.id} name={task.name} status={task.status}/>
+        <Task key={task.id} id={task.id} name={task.name} status={task.status} changeTaskStatus={props.changeTaskStatus}/>
     );
 
     //tasks
@@ -23,22 +23,24 @@ const TaskList = (props) => {
     }
 
     const addNewTask = () => {
-        addTaskId()
-        const newTask = {
-            id,
-            name,
-            status: false,
-            date: {
-                day: props.selectedDay,
-                month: 5,
-                year: 2023
+        if (name === "") {
+            return 0
+        } else {
+            addTaskId()
+            const newTask = {
+                id,
+                name,
+                status: false,
+                date: {
+                    day: props.selectedDay,
+                    month: 5,
+                    year: 2023
+                }
             }
+            console.log(newTask)
+            store.state.tasks.push(newTask) // props.setTasks([...props.tasks, newTask])
+            setName("")
         }
-        console.log(newTask)
-        // props.setTasks([...props.tasks, newTask])
-        store.state.tasks.push(newTask)
-        setName("")
-
     }
 
     if (props.shown === true) {
