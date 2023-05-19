@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Task.module.css";
 
-const Task = (props) => {
+const Task = ({status, changeTaskStatus, id, name}) => {
 
     return (
         <li className={styles.li}>
-            <input type="checkbox" checked={props.status} onChange={ event => props.changeTaskStatus(event.target.value) }/>
-            <p>{props.name} </p>
+            <input type="checkbox" checked={status} onChange={ event => changeTaskStatus(event.target.checked, id) }/>
+            <p>{name} </p>
         </li>
 
     )

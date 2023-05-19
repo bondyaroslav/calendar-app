@@ -4,10 +4,9 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
+import task from "./Components/Task";
 
-function App(props) {
-
-    let state = props.store.state
+function App({state, tasksInState, currentDate}) {
 
     const [shown, setShown] = useState(false)
     const showTaskList = () => {
@@ -36,25 +35,22 @@ function App(props) {
         chooseSelectDay(dates)
     }
 
-    const [tasks, setTasks] = useState(state.tasks)
-    const [status, setStatus] = useState()
+
+    let [tasks, setTasks] = useState(tasksInState)
 
     const changeTaskStatus = (value, id) => {
-        setStatus(!status)
+        let newTasks = tasks
+        if (newTasks.id === id) {
+            tasks.forEach(task => setTasks(!value))
+        }
     }
-
-    // const handleAddNewTask = (newTask) => {
-    //     setTasks(newTask)
-    // }
 
     return (
         <div className="App">
-            <CurrentDate year={props.store.state.currentDate.year}
-                         month={props.store.state.currentDate.month}
-                         day={props.store.state.currentDate.day}
+            <CurrentDate currentDate={currentDate}
             />
             <div className="calendar-wrapper">
-                <Calendar state={props.store.state}
+                <Calendar state={state}
                           handleDateClick={handleDateClick}
 
                 />
@@ -64,7 +60,6 @@ function App(props) {
                       setTasks={setTasks}
                       closeTaskList={closeTaskList}
                       selectedDay={selectedDay}
-                      currentDate={props.store.state.currentDate}
                       changeTaskStatus={changeTaskStatus}
             />
         </div>

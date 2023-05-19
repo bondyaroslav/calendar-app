@@ -2,11 +2,9 @@ import React from "react";
 import styles from "./Calendar.module.css"
 import CalendarDay from "./CalendarDay";
 
-const Calendar = (props) => {
+const Calendar = ({state, handleDateClick}) => {
 
-    let state = props.state
-
-    let datesElements = state.dates.map( date  => <CalendarDay key={date} dates={date} handleDateClick={props.handleDateClick}/>)
+    let datesElements = state.dates.map( date  => <CalendarDay key={date} dates={date} handleDateClick={handleDateClick}/>)
 
     return (
         <div className={styles.Calendar}>

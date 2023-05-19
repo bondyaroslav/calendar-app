@@ -4,9 +4,9 @@ import App from './App';
 import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export const rerenderAllTree = (state) => {
+export const rerenderAllTree = () => {
     root.render(
-        <App state={state} store={store}/>
+        <App state={store.state} tasksInState={store.state.tasks} currentDate={store.state.currentDate}/>
     );
 }
 
