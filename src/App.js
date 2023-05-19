@@ -4,7 +4,6 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
-import task from "./Components/Task";
 
 function App(props) {
 
@@ -41,16 +40,7 @@ function App(props) {
     const [status, setStatus] = useState()
 
     const changeTaskStatus = (value, id) => {
-
-        let tasksId = tasks.map(task => )
-        console.log(tasksId)
-        if (value === "on") {
-            setStatus(true)
-            console.log(status)
-        } else {
-            setStatus(false)
-            console.log(status)
-        }
+        setStatus(!status)
     }
 
     // const handleAddNewTask = (newTask) => {
