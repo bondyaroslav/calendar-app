@@ -4,7 +4,6 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
-import task from "./Components/Task";
 
 function App({state, tasksInState, currentDate}) {
 
