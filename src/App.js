@@ -5,7 +5,6 @@ import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
 import task from "./Components/Task";
-import {rerenderAllTree} from "./index";
 
 function App({state, tasksInState, currentDate}) {
 
@@ -39,15 +38,6 @@ function App({state, tasksInState, currentDate}) {
 
     let [tasks, setTasks] = useState(tasksInState)
 
-    const deleteTask = (id) => {
-        let idToRemove = id
-        let index = tasks.findIndex((element) => element.id === idToRemove)
-        if (index !== -1) {
-            tasks.splice(index, 1)
-            rerenderAllTree()
-        }
-    }
-
     const changeTaskStatus = (value, id) => {
         let newTasks = tasks
         if (newTasks.id === id) {
@@ -70,7 +60,6 @@ function App({state, tasksInState, currentDate}) {
                       setTasks={setTasks}
                       closeTaskList={closeTaskList}
                       selectedDay={selectedDay}
-                      deleteTask={deleteTask}
                       changeTaskStatus={changeTaskStatus}
             />
         </div>
