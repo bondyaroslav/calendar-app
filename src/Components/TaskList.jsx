@@ -3,11 +3,11 @@ import styles from "./TaskList.module.css"
 import Task from "./Task";
 import store from "../redux/store";
 
-const TaskList = ({tasks, selectedDay, changeTaskStatus, shown, closeTaskList}) => {
+const TaskList = ({tasks, selectedDay, deleteTask, changeTaskStatus, shown, closeTaskList}) => {
 
     let tasksElement = tasks.map(task =>
         task.date.day === selectedDay &&
-        <Task key={task.id} id={task.id} name={task.name} status={task.status} changeTaskStatus={changeTaskStatus}/>
+        <Task key={task.id} id={task.id} name={task.name} status={task.status} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus}/>
     );
 
     //tasks

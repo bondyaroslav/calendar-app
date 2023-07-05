@@ -1,8 +1,15 @@
 .li {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 p {
+    text-align: center;
+}
+
+.deleteButton {
+    width: 25px;
+    height: 25px;
     text-align: center;
 }
