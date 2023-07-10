@@ -1,13 +1,18 @@
 import React, {useState} from "react";
 import styles from "./TaskList.module.css"
 import Task from "./Task";
-import store from "../redux/store";
 
-const TaskList = ({tasks, selectedDay, deleteTask, changeTaskStatus, shown, closeTaskList}) => {
+const TaskList = ({tasks, selectedDay, setTasks, deleteTask, shown, closeTaskList, isChecked, changeTaskStatus}) => {
 
     let tasksElement = tasks.map(task =>
         task.date.day === selectedDay &&
-        <Task key={task.id} id={task.id} name={task.name} status={task.status} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus}/>
+        <Task key={task.id}
+              id={task.id}
+              name={task.name}
+              status={task.status}
+              changeTaskStatus={changeTaskStatus}
+              isChecked={isChecked}
+              deleteTask={deleteTask}/>
     );
 
     //tasks
@@ -33,15 +38,17 @@ const TaskList = ({tasks, selectedDay, deleteTask, changeTaskStatus, shown, clos
                 status: false,
                 date: {
                     day: selectedDay,
-                    month: 5,
-                    year: 2023
+                    month: 5, //current month
+                    year: 2023 //current year
                 }
             }
             console.log(newTask)
-            store.state.tasks.push(newTask) // props.setTasks([...props.tasks, newTask])
+            setTasks([...tasks, newTask])
             setName("")
         }
     }
+
+
 
     if (shown === true) {
         return (

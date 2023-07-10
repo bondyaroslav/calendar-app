@@ -4,7 +4,6 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
-import task from "./Components/Task";
 import {rerenderAllTree} from "./index";
 
 function App({state, tasksInState, currentDate}) {
@@ -48,12 +47,18 @@ function App({state, tasksInState, currentDate}) {
         }
     }
 
-    const changeTaskStatus = (value, id) => {
-        let newTasks = tasks
-        if (newTasks.id === id) {
-            tasks.forEach(task => setTasks(!value))
-        }
-    }
+    const changeTaskStatus = (id) => {
+        const updatedTasks = tasks.map((task) => {
+            if (task.id === id) {
+                return {
+                    ...task,
+                    status: !task.status
+                };
+            }
+            return task
+        });
+        setTasks(updatedTasks)
+    };
 
     return (
         <div className="App">
@@ -62,7 +67,6 @@ function App({state, tasksInState, currentDate}) {
             <div className="calendar-wrapper">
                 <Calendar state={state}
                           handleDateClick={handleDateClick}
-
                 />
             </div>
             <TaskList shown={shown}
