@@ -1,8 +1,14 @@
 import React, {useState} from "react";
 import styles from "./TaskList.module.css"
 import Task from "./Task";
+import {rerenderAllTree} from "../index";
 
-const TaskList = ({tasks, selectedDay, setTasks, deleteTask, shown, closeTaskList, isChecked, changeTaskStatus}) => {
+const TaskList = ({tasks, selectedDay, setTasks, shown, closeTaskList, isChecked, changeTaskStatus}) => {
+
+    const deleteTask = (id) => {
+        const updatedTasks = tasks.filter((task) => task.id !== id);
+        setTasks(updatedTasks);
+    };
 
     let tasksElement = tasks.map(task =>
         task.date.day === selectedDay &&
@@ -48,8 +54,6 @@ const TaskList = ({tasks, selectedDay, setTasks, deleteTask, shown, closeTaskLis
         }
     }
 
-
-
     if (shown === true) {
         return (
             <div className={styles.TaskList}>
@@ -60,7 +64,7 @@ const TaskList = ({tasks, selectedDay, setTasks, deleteTask, shown, closeTaskLis
                 </div>
                 <div>
                     <input placeholder={"enter new task"} value={name} onChange={ event => addTaskName(event) }/>
-                    <button onClick={ () => {addNewTask()} }>add task</button>
+                    <button onClick={ () => { addNewTask() } }>add task</button>
                 </div>
                 <ul className={styles.ul}>
                     {tasksElement}
