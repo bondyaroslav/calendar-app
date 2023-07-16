@@ -4,7 +4,11 @@ import CalendarDay from "./CalendarDay";
 
 const Calendar = ({state, handleDateClick}) => {
 
-    let datesElements = state.dates.map( date  => <CalendarDay key={date} dates={date} handleDateClick={handleDateClick}/>)
+    let datesElements = state.dates.map( date  =>
+        <CalendarDay key={date}
+                     dates={date}
+                     handleDateClick={handleDateClick}
+        />)
 
     return (
         <div className={styles.Calendar}>

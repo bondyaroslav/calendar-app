@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import styles from "./TaskList.module.css"
 import Task from "./Task";
-import {rerenderAllTree} from "../index";
 
 const TaskList = ({tasks, selectedDay, setTasks, shown, closeTaskList, isChecked, changeTaskStatus}) => {
 
@@ -54,6 +53,12 @@ const TaskList = ({tasks, selectedDay, setTasks, shown, closeTaskList, isChecked
         }
     }
 
+    const handleAddTaskKeyPress = (event) => {
+        if(event.key === "Enter"){
+            addNewTask()
+        }
+    }
+
     if (shown === true) {
         return (
             <div className={styles.TaskList}>
@@ -63,7 +68,11 @@ const TaskList = ({tasks, selectedDay, setTasks, shown, closeTaskList, isChecked
                     <button className={styles.button} onClick={closeTaskList}>x</button>
                 </div>
                 <div>
-                    <input placeholder={"enter new task"} value={name} onChange={ event => addTaskName(event) }/>
+                    <input placeholder={"enter new task"}
+                           value={name}
+                           onChange={event => addTaskName(event)}
+                           onKeyPress={event => handleAddTaskKeyPress(event)}
+                    />
                     <button onClick={ () => { addNewTask() } }>add task</button>
                 </div>
                 <ul className={styles.ul}>

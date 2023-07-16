@@ -13,3 +13,5 @@ export const rerenderAllTree = () => {
 rerenderAllTree()
 
 store.fillDatesInState()
+
+store.getNameOfWeekDay()
