@@ -1,5 +1,3 @@
-import {logDOM} from "@testing-library/react";
-
 let store = {
     state: {
         tasks: [
@@ -79,13 +77,14 @@ let store = {
         ]
 
         store.state.dates.forEach((day) => {
-            const date = new Date(2023, 5, day)
+            const date = new Date(2023, store.state.currentDate.month - 1, day)
             const dayOfWeek = weekDays[date.getDay()]
             console.log(`${day} - ${dayOfWeek}`)
 
-             store.state.weekDays.push(dayOfWeek)
+            store.state.weekDays.push(dayOfWeek)
         });
         console.log(store.state.weekDays)
+        
     },
 }
 

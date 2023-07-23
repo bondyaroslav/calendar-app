@@ -12,7 +12,9 @@ const Calendar = ({state, handleDateClick}) => {
 
     return (
         <div className={styles.Calendar}>
-            <div className={styles.wrapper}>{datesElements}</div>
+            <div className={styles.wrapper}>
+                {datesElements}
+            </div>
         </div>
     )
 }
