@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import {Provider} from "react-redux";
 import store from "./redux/store";
+import {currentDate, dates} from "./dates"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-export const rerenderAllTree = () => {
-    root.render(
-        <App state={store.state} tasksInState={store.state.tasks} currentDate={store.state.currentDate}/>
-    );
-}
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
-rerenderAllTree()
-
-store.fillDatesInState()
-
-store.getNameOfWeekDay()
+root.render(
+    <Provider store={store}>
+        <App dates={dates} currentDate={currentDate}/>,
+    </Provider>,
+);

@@ -1,0 +1,14 @@
+.CalendarDay {
+    min-width: 100px;
+    min-height: 100px;
+
+    background-color: lightgrey;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CalendarDay:hover {
+    background-color: aquamarine;
+}

@@ -10,8 +10,17 @@ body {
 }
 
 .calendar-wrapper {
-    background-color: aquamarine;
+    background-color: lightgrey;
     width: 700px;
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }

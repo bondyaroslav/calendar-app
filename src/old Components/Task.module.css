@@ -1,0 +1,17 @@
+.li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+p {
+    text-align: left;
+}
+
+.deleteButton {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}

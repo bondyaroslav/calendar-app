@@ -4,67 +4,24 @@ import {useState} from "react";
 import Calendar from "./Components/Calendar";
 import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
+import {useDispatch, useSelector} from "react-redux";
+import {addTaskActionCreator} from "./redux/taskReducer";
 
-function App({state, tasksInState, currentDate}) {
-
-    const [shown, setShown] = useState(false)
-    const showTaskList = () => {
-        if (shown === false) {
-            setShown(true)
-        } else {
-            return 0
-        }
-    }
-    const closeTaskList = () => {
-        if (shown === true) {
-            setShown(false)
-        } else {
-            return 0
-        }
-    }
-
-    const [selectedDay, setSelectedDay] = useState(null)
-
-    const chooseSelectDay = (dates) => {
-        setSelectedDay(dates)
-    }
-
-    const handleDateClick = (dates) => {
-        showTaskList()
-        chooseSelectDay(dates)
-    }
-
-    let [tasks, setTasks] = useState(tasksInState)
-
-    const changeTaskStatus = (id) => {
-        const updatedTasks = tasks.map((task) => {
-            if (task.id === id) {
-                return {
-                    ...task,
-                    status: !task.status
-                };
-            }
-            return task
-        });
-        setTasks(updatedTasks)
-    };
+const App = ({dates, currentDate}) => {
 
     return (
         <div className="App">
-            <CurrentDate currentDate={currentDate}
-            />
             <div className="calendar-wrapper">
-                <Calendar state={state}
-                          handleDateClick={handleDateClick}
-                />
+                <div className={"wrapper"}>
+                    <CurrentDate currentDate={currentDate}/>
+                    <div className={"button-wrapper"}>
+                        <button>prev month</button>
+                        <button>next month</button>
+                    </div>
+                </div>
+                <Calendar dates={dates}/>
+                {/*<TaskList/>*/}
             </div>
-            <TaskList shown={shown}
-                      tasks={tasks}
-                      setTasks={setTasks}
-                      closeTaskList={closeTaskList}
-                      selectedDay={selectedDay}
-                      changeTaskStatus={changeTaskStatus}
-            />
         </div>
     );
 }
