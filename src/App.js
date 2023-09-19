@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css"
-import {useState} from "react";
-import Calendar from "./Components/Calendar";
-import TaskList from "./Components/TaskList";
 import CurrentDate from "./Components/CurrentDate";
-import {useDispatch, useSelector} from "react-redux";
-import {addTaskActionCreator} from "./redux/taskReducer";
+import Calendar from "./old Components/Calendar";
 
-const App = ({dates, currentDate}) => {
+const App = ({currentYear, currentDate}) => {
+
+    console.log(currentYear)
 
     return (
         <div className="App">
@@ -19,7 +17,7 @@ const App = ({dates, currentDate}) => {
                         <button>next month</button>
                     </div>
                 </div>
-                <Calendar dates={dates}/>
+                {/*<Calendar currentYear={currentYear}/>*/}
                 {/*<TaskList/>*/}
             </div>
         </div>

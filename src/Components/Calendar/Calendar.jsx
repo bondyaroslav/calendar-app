@@ -1,18 +1,20 @@
 import React from "react";
 import styles from "./Calendar.module.css"
-import CalendarDay from "./CalendarDay";
+import Month from "./Month";
 
-const Calendar = ({dates}) => {
+const Calendar = ({currentYear}) => {
+    console.log("render")
 
-    let datesElements = dates.map( date  =>
-        <CalendarDay key={date}
-                     dates={date}
-        />)
+    let months = currentYear.map(
+        month => <Month
+            key={month} day={month}
+        />
+    )
 
     return (
         <div className={styles.Calendar}>
             <div className={styles.wrapper}>
-                {datesElements}
+                {/*{month}*/}
             </div>
         </div>
     )
