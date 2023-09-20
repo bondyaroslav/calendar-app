@@ -1,10 +1,10 @@
 import React from 'react';
-import Day from "./Day";
+import styles from "./Month.module.css"
 
 const Month = ({day}) => {
     return (
-        <div>
-
+        <div className={styles.MonthWrapper}>
+            {day}
         </div>
     );
 };

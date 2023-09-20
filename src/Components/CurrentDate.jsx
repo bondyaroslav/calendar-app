@@ -5,7 +5,7 @@ const CurrentDate = ({currentDate}) => {
 
     return (
         <div className={styles.ThisDate}>
-            <p>Date: {currentDate.day}.{currentDate.month}.{currentDate.year}</p>
+            <p>Today: {currentDate.day}.{currentDate.month}.{currentDate.year}</p>
         </div>
     )
 }

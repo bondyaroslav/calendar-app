@@ -59,7 +59,22 @@ const getAmountOfDaysInCurrentYear = (year = 2023) => {
     // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
     // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
     // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-
 }
 getAmountOfDaysInCurrentYear(2023)
 
+const getDayName = (year, month, day) => {
+    const days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sut"
+    ]
+    let date = new Date(year, month, day)
+    let n = date.getDay()
+    console.log(days[n])
+}
+
+getDayName(2023, 9, 25)

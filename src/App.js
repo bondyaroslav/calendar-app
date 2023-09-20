@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css"
 import CurrentDate from "./Components/CurrentDate";
-import Calendar from "./old Components/Calendar";
+import Calendar from "./Components/Calendar/Calendar";
 
 const App = ({currentYear, currentDate}) => {
 
@@ -17,7 +17,7 @@ const App = ({currentYear, currentDate}) => {
                         <button>next month</button>
                     </div>
                 </div>
-                {/*<Calendar currentYear={currentYear}/>*/}
+                <Calendar currentYear={currentYear}/>
                 {/*<TaskList/>*/}
             </div>
         </div>
