@@ -1,14 +1,16 @@
-.MonthWrapper {
-    min-width: 100px;
-    min-height: 100px;
-
+.Month {
     background-color: lightgrey;
-
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
+    width: 700px;
 }
 
-.MonthWrapper:hover {
-    background-color: aquamarine;
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transform: translateX(0);
 }

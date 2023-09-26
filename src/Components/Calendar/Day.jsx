@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Month.module.css"
+import styles from "./Day.module.css"
 
-const Day = () => {
+const Day = ({day}) => {
     return (
-        <div className={styles.CalendarDay}>
-            <p>Day</p>
+        <div className={styles.Day}>
+            <p>Day {day}</p>
         </div>
     )
 }

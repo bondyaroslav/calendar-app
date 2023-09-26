@@ -5,13 +5,24 @@ import Month from "./Month";
 const Calendar = ({currentYear}) => {
     console.log("render")
 
-    let months = currentYear.January.map(month =>  <Month key={month} day   ={month}/> )
+    let january = currentYear.January
+    let february = currentYear.February
+    let march = currentYear.March
+    let april
+    let may
+    let june
+    let july
+    let august
+    let september
+    let october
+    let november
+    let december
 
     return (
        <div className={styles.Calendar}>
-           <div className={styles.wrapper}>
-               {months}
-           </div>
+           <Month month={january}/>
+           <Month month={february}/>
+           <Month month={march}/>
        </div>
     )
 }

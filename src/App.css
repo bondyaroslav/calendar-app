@@ -4,23 +4,20 @@ body {
 
 .App {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 .calendar-wrapper {
-    background-color: lightgrey;
     width: 700px;
+    overflow: hidden;
+    background-color: lightgrey;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+.window {
+    width: 2100px;
+    overflow: hidden;
 }
