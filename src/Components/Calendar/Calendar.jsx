@@ -5,20 +5,20 @@ import Month from "./Month";
 const PAGE_WIDTH = 700
 
 const Calendar = ({currentYear, children}) => {
-    // console.log("render")
+    console.log("render")
 
-    let january = currentYear.January
-    let february = currentYear.February
-    let march = currentYear.March
-    let april
-    let may
-    let june
-    let july
-    let august
-    let september
-    let october
-    let november
-    let december
+    // let january = currentYear.January
+    // let february = currentYear.February
+    // let march = currentYear.March
+    // let april
+    // let may
+    // let june
+    // let july
+    // let august
+    // let september
+    // let october
+    // let november
+    // let december
 
     const [pages, setPages] = useState([])
     const [offset, setOffset] = useState(0)
@@ -34,7 +34,7 @@ const Calendar = ({currentYear, children}) => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset - PAGE_WIDTH
 
-            const maxOffset = -(PAGE_WIDTH * (pages.length -1))
+            const maxOffset = -(PAGE_WIDTH * (pages.length - 1))
 
             console.log(newOffset)
             return Math.max(newOffset, maxOffset)
@@ -58,13 +58,14 @@ const Calendar = ({currentYear, children}) => {
     return (
         <div className={styles.Calendar}>
             <div className={styles.button} onClick={handleLeftClick}>prev</div>
-                <div className={styles.window}>
-                    <div className={styles.allPagesContainer}>
-                        <Month month={january}/>
-                        <Month month={february}/>
-                        <Month month={march}/>
-                    </div>
+            <div className={styles.window}>
+                <div className={styles.allPagesContainer}
+                     style={{
+                         transform: `translateX(${offset}px)`
+                     }}>
+                    {pages}
                 </div>
+            </div>
             <div className={styles.button} onClick={handleRightClick}>next</div>
         </div>
     )
