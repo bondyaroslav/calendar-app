@@ -2,15 +2,11 @@
     background-color: lightgrey;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    width: 700px;
+    min-width: 700px;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    transform: translateX(0);
 }

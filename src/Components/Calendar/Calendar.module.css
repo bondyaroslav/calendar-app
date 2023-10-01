@@ -1,6 +1,25 @@
 .Calendar {
     display: flex;
     flex-direction: row;
-    background-color: lightgrey;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.window {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.allPagesContainer {
+    height: 500px;
+    display: flex;
+}
+
+.button {
+    width: 50px;
+    text-align: center;
 }
 

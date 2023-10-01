@@ -8,16 +8,3 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.calendar-wrapper {
-    width: 700px;
-    overflow: hidden;
-    background-color: lightgrey;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.window {
-    width: 2100px;
-    overflow: hidden;
-}
