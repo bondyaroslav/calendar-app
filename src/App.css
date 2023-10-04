@@ -4,14 +4,7 @@ body {
 
 .App {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.calendar-wrapper {
-    background-color: aquamarine;
-    width: 700px;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }

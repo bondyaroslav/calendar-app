@@ -1,67 +1,37 @@
 import React from "react";
 import "./App.css"
-import {useState} from "react";
-import Calendar from "./Components/Calendar";
-import TaskList from "./Components/TaskList";
+import styles from "./Components/CurrentDate.module.css"
 import CurrentDate from "./Components/CurrentDate";
-import task from "./Components/Task";
+import Calendar from "./Components/Calendar/Calendar";
+import Month from "./Components/Calendar/Month";
 
-function App({state, tasksInState, currentDate}) {
+const App = ({currentYear, currentDate}) => {
+    console.log(currentYear)
 
-    const [shown, setShown] = useState(false)
-    const showTaskList = () => {
-        if (shown === false) {
-            setShown(true)
-        } else {
-            return 0
-        }
-    }
-    const closeTaskList = () => {
-        if (shown === true) {
-            setShown(false)
-        } else {
-            return 0
-        }
-    }
-
-    const [selectedDay, setSelectedDay] = useState(null)
-
-    const chooseSelectDay = (dates) => {
-        setSelectedDay(dates)
-    }
-
-    const handleDateClick = (dates) => {
-        showTaskList()
-        chooseSelectDay(dates)
-    }
-
-
-    let [tasks, setTasks] = useState(tasksInState)
-
-    const changeTaskStatus = (value, id) => {
-        let newTasks = tasks
-        if (newTasks.id === id) {
-            tasks.forEach(task => setTasks(!value))
-        }
-    }
+    let january = currentYear.January
+    let february = currentYear.February
+    let march = currentYear.March
+    let april
+    let may
+    let june
+    let july
+    let august
+    let september
+    let october
+    let november
+    let december
 
     return (
         <div className="App">
-            <CurrentDate currentDate={currentDate}
-            />
-            <div className="calendar-wrapper">
-                <Calendar state={state}
-                          handleDateClick={handleDateClick}
-
-                />
+            <div className="wrapper">
+                <CurrentDate classname={styles.CurrentDate} currentDate={currentDate}/>
+                <Calendar currentYear={currentYear}>
+                    <Month month={january}/>
+                    <Month month={february}/>
+                    <Month month={march}/>
+                </Calendar>
+                {/*<TaskList/>*/}
             </div>
-            <TaskList shown={shown}
-                      tasks={tasks}
-                      setTasks={setTasks}
-                      closeTaskList={closeTaskList}
-                      selectedDay={selectedDay}
-                      changeTaskStatus={changeTaskStatus}
-            />
         </div>
     );
 }

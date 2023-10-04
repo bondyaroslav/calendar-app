@@ -1,7 +1,8 @@
-.Calendar {
-    display: flex;
-    flex-direction: row;
+.Month {
     background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    min-width: 700px;
 }
 
 .wrapper {
