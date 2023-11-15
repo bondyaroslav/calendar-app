@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Day.module.css"
 
-const Day = ({day}) => {
+const Day = ({dayNumber, dayName}) => {
+
     return (
         <div className={styles.Day}>
-            <p>Day {day}</p>
+            <p>{dayName}</p>
+            {dayNumber}
         </div>
     )
 }

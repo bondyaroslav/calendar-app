@@ -3,8 +3,10 @@ import styles from "./Month.module.css"
 import Day from "./Day";
 
 const Month = ({month}) => {
-
-    let days = month.map(day => <Day key={day} day={day}/> )
+    console.log(month)
+    const days = month[0].map((day) => (
+        <Day key={day.dayNumber} dayNumber={day.dayNumber} dayName={day.dayName}/>
+    ))
 
     return (
         <div className={styles.Month}>
@@ -12,7 +14,7 @@ const Month = ({month}) => {
                 {days}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default Month;

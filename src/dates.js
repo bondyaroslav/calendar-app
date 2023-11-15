@@ -1,80 +1,87 @@
-import {getDaysInMonth} from "date-fns"
-
-export let currentYear = {
-    id: 2023,
-    January: [],
-    February: [],
-    March: [],
-    April: [],
-    May: [],
-    June: [],
-    July: [],
-    August: [],
-    September: [],
-    October: [],
-    November: [],
-    December: [],
+let calendarState = {
+    currentDate: {
+        day: null,
+        month: null,
+        year: null,
+    },
+    year: {
+        yearName: 2023,
+        months: {
+            "january": [],
+            "february": [],
+            "march": [],
+            "april": [],
+            "may": [],
+            "june": [],
+            "july": [],
+            "august": [],
+            "september": [],
+            "october": [],
+            "november": [],
+            "december": [],
+        }
+    }
 }
 
-export let currentDate = {
-    year: [],
-    month: [],
-    day: [],
-}
+let date = new Date()
 
 const getCurrentDate = () => {
-    let date = new Date()
-    let thisYear = date.getFullYear()
-    let thisMonth = date.getMonth()
-
-    let thisDay = date.getDate()
-    currentDate.year.push(thisYear)
-    currentDate.month.push(thisMonth + 1)
-    currentDate.day.push(thisDay)
+    calendarState.currentDate.day = date.getDate()
+    calendarState.currentDate.month = date.getMonth() + 1
+    calendarState.currentDate.year = date.getFullYear()
 }
 getCurrentDate()
 
-const getAmountOfDaysInCurrentYear = (year = 2023) => {
-    const daysInJanuary = getDaysInMonth(new Date(year, 1))
-    const daysInFebruary = getDaysInMonth(new Date(year, 2))
-    const daysInMarch = getDaysInMonth(new Date(year, 3))
-    const daysInApril = getDaysInMonth(new Date(year, 4))
-    const daysInMay = getDaysInMonth(new Date(year, 5))
-    const daysInJune = getDaysInMonth(new Date(year, 6))
-    const daysInJuly = getDaysInMonth(new Date(year, 7))
-    const daysInAugust = getDaysInMonth(new Date(year, 8))
-    const daysInSeptember = getDaysInMonth(new Date(year, 9))
-    const daysInOctober = getDaysInMonth(new Date(year, 10))
-    const daysInNovember = getDaysInMonth(new Date(year, 11))
-    const daysInDecember = getDaysInMonth(new Date(year, 12))
-
-    for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    for (let i = 1; i <= daysInFebruary; i++) {currentYear.February.push(i)}
-    for (let i = 1; i <= daysInMarch; i++) {currentYear.March.push(i)}
-    for (let i = 1; i <= daysInApril; i++) {currentYear.April.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-    // for (let i = 1; i <= daysInJanuary; i++) {currentYear.January.push(i)}
-}
-getAmountOfDaysInCurrentYear(2023)
-
+// get name of day of the week
 const getDayName = (year, month, day) => {
-    const days = [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sut"
-    ]
-    let date = new Date(year, month, day)
-    let n = date.getDay()
-    console.log(days[n])
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const date = new Date(year, month - 1, day - 1)
+    return days[date.getDay()]
 }
 
-getDayName(2023, 9, 25)
+const createDay = (year, month, dayNumber) => {
+    let day = {
+        dayNumber,
+        dayName: getDayName(year, month, dayNumber),
+        tasks: {
+            taskId: Number,
+            taskName: String,
+            taskStatus: Boolean //active or completed
+        }
+    }
+    return day
+}
+
+// get amount days in month
+const getDaysInMonth = (year, month) => {
+    return new Date(year, month, 0).getDate();
+}
+
+const createMonth = (year, month) => {
+    let daysInMonth = getDaysInMonth(year,month + 1)
+    let newMonth = []
+    for (let i = 1; i <= daysInMonth; i++) {
+        newMonth.push(createDay(year, month, i))
+    }
+    // console.log(newMonth)
+    return newMonth
+}
+
+const createYear = (year) => {
+    calendarState.year.months.january.push(createMonth(0, year))
+    calendarState.year.months.february.push(createMonth(1, year))
+    calendarState.year.months.march.push(createMonth(2, year))
+    calendarState.year.months.april.push(createMonth(3, year))
+    calendarState.year.months.may.push(createMonth(4, year))
+    calendarState.year.months.june.push(createMonth(5, year))
+    calendarState.year.months.july.push(createMonth(6, year))
+    calendarState.year.months.august.push(createMonth(7, year))
+    calendarState.year.months.september.push(createMonth(8, year))
+    calendarState.year.months.october.push(createMonth(9, year))
+    calendarState.year.months.november.push(createMonth(10, year))
+    calendarState.year.months.december.push(createMonth(11, year))
+}
+createYear(2023)
+
+
+export default calendarState

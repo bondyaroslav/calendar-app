@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 800px;
+    width: 790px;
     height: 500px;
-    border: 1px solid black;
 }
 
 .window {
@@ -19,6 +18,7 @@
 }
 
 .button {
+    position: relative;
     width: 50px;
     text-align: center;
 }

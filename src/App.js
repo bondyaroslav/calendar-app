@@ -1,39 +1,22 @@
 import React from "react";
 import "./App.css"
-import styles from "./Components/CurrentDate.module.css"
-import CurrentDate from "./Components/CurrentDate";
+import styles from "./Components/CurrentDate/CurrentDate.module.css"
+import CurrentDate from "./Components/CurrentDate/CurrentDate";
 import Calendar from "./Components/Calendar/Calendar";
-import Month from "./Components/Calendar/Month";
+import calendarState from "./dates"
 
-const App = ({currentYear, currentDate}) => {
-    console.log(currentYear)
-
-    let january = currentYear.January
-    let february = currentYear.February
-    let march = currentYear.March
-    let april
-    let may
-    let june
-    let july
-    let august
-    let september
-    let october
-    let november
-    let december
+const App = () => {
+    const currentDate = calendarState.currentDate
 
     return (
         <div className="App">
             <div className="wrapper">
                 <CurrentDate classname={styles.CurrentDate} currentDate={currentDate}/>
-                <Calendar currentYear={currentYear}>
-                    <Month month={january}/>
-                    <Month month={february}/>
-                    <Month month={march}/>
-                </Calendar>
+                <Calendar calendarState={calendarState}/>
                 {/*<TaskList/>*/}
             </div>
         </div>
-    );
+    )
 }
 
 export default App;

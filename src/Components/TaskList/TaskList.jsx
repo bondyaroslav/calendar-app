@@ -1,7 +1,7 @@
 // import React, {useState} from "react";
 // import styles from "./TaskList.module.css"
 // import Task from "./Task";
-// import {addTaskActionCreator, deleteTaskActionCreator} from "../redux/taskReducer";
+// import {addTaskActionCreator, deleteTaskActionCreator} from "../redux/calendarReducer";
 // import {useDispatch} from "react-redux";
 //
 // const TaskList = ({shown, tasks, selectedDay, closeTaskList}) => {
