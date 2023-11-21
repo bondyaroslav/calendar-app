@@ -1,20 +1,22 @@
-import React from 'react';
+import React from 'react'
 import styles from "./Month.module.css"
-import Day from "./Day";
+import Day from "./Day"
 
-const Month = ({month}) => {
-    console.log(month)
-    const days = month[0].map((day) => (
-        <Day key={day.dayNumber} dayNumber={day.dayNumber} dayName={day.dayName}/>
-    ))
-
+const Month = ({ month }) => {
     return (
         <div className={styles.Month}>
             <div className={styles.wrapper}>
-                {days}
+                {month[0].map((day, index) => (
+                    <Day
+                        key={index}
+                        dayNumber={day.dayNumber}
+                        dayName={day.dayName}
+                        tasks={day.tasks}
+                    />
+                ))}
             </div>
         </div>
     )
 }
 
-export default Month;
+export default Month
