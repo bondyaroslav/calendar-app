@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 import "./App.css"
 import styles from "./Components/CurrentDate/CurrentDate.module.css"
-import CurrentDate from "./Components/CurrentDate/CurrentDate";
-import Calendar from "./Components/Calendar/Calendar";
+import CurrentDate from "./Components/CurrentDate/CurrentDate"
+import Calendar from "./Components/Calendar/Calendar"
 import calendarState from "./dates"
 
 const App = () => {
@@ -19,4 +19,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default App

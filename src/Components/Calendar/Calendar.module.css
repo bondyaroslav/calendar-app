@@ -1,5 +1,14 @@
 .Calendar {
     display: flex;
+    flex-direction: column;
+}
+
+.currentMonth {
+    margin-left: 60px;
+}
+
+.wrapper {
+    display: flex;
     flex-direction: row;
     align-items: center;
     width: 790px;
