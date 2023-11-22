@@ -52,13 +52,13 @@ const createDay = (year, month, dayNumber) => {
     return day
 }
 
-// get amount days in month
+// get amount of days in month
 const getDaysInMonth = (year, month) => {
     return new Date(year, month, 0).getDate();
 }
 
 const createMonth = (year, month) => {
-    let daysInMonth = getDaysInMonth(year,month + 1)
+    let daysInMonth = getDaysInMonth(year, month)
     let newMonth = []
     for (let i = 1; i <= daysInMonth; i++) {
         newMonth.push(createDay(year, month, i))
@@ -68,18 +68,18 @@ const createMonth = (year, month) => {
 }
 
 const createYear = (year) => {
-    calendarState.year.months.january.push(createMonth(0, year))
-    calendarState.year.months.february.push(createMonth(1, year))
-    calendarState.year.months.march.push(createMonth(2, year))
-    calendarState.year.months.april.push(createMonth(3, year))
-    calendarState.year.months.may.push(createMonth(4, year))
-    calendarState.year.months.june.push(createMonth(5, year))
-    calendarState.year.months.july.push(createMonth(6, year))
-    calendarState.year.months.august.push(createMonth(7, year))
-    calendarState.year.months.september.push(createMonth(8, year))
-    calendarState.year.months.october.push(createMonth(9, year))
-    calendarState.year.months.november.push(createMonth(10, year))
-    calendarState.year.months.december.push(createMonth(11, year))
+    calendarState.year.months.january.push(createMonth(year, 1))
+    calendarState.year.months.february.push(createMonth(year, 2))
+    calendarState.year.months.march.push(createMonth(year, 3))
+    calendarState.year.months.april.push(createMonth(year, 4))
+    calendarState.year.months.may.push(createMonth(year, 5))
+    calendarState.year.months.june.push(createMonth(year,6 ))
+    calendarState.year.months.july.push(createMonth(year, 7))
+    calendarState.year.months.august.push(createMonth(year, 8))
+    calendarState.year.months.september.push(createMonth(year, 9))
+    calendarState.year.months.october.push(createMonth(year, 10))
+    calendarState.year.months.november.push(createMonth(year, 11))
+    calendarState.year.months.december.push(createMonth(year, 12))
 }
 createYear(2023)
 
