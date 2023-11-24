@@ -1,8 +1,8 @@
 import {combineReducers, createStore} from "redux";
-import calendarReducer from "./reducers/calendarReducer";
+import taskReducer from "./reducers/taskReducer";
 
 let reducers = combineReducers({
-    calendar: calendarReducer,
+    taskList: taskReducer,
 })
 
 let store = createStore(reducers)

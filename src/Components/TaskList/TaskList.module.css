@@ -6,19 +6,10 @@
     background-color: aquamarine;
 }
 
-.wrapper {
+
+
+.headerWrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.button {
-    width: 25px;
-    height: 25px;
-}
-
-.ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
 }

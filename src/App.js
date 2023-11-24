@@ -4,16 +4,17 @@ import styles from "./Components/CurrentDate/CurrentDate.module.css"
 import CurrentDate from "./Components/CurrentDate/CurrentDate"
 import Calendar from "./Components/Calendar/Calendar"
 import calendarState from "./dates"
+import TaskList from "./Components/TaskList/TaskList";
 
 const App = () => {
-    const currentDate = calendarState.currentDate
-
     return (
         <div className="App">
             <div className="wrapper">
-                <CurrentDate classname={styles.CurrentDate} currentDate={currentDate}/>
+                <CurrentDate classname={styles.CurrentDate} currentDate={ calendarState.currentDate}/>
                 <Calendar calendarState={calendarState}/>
-                {/*<TaskList/>*/}
+                <div className={"taskListWrapper"}>
+                    <TaskList/>
+                </div>
             </div>
         </div>
     )
