@@ -1,14 +1,14 @@
-// import React from "react";
-// import styles from "./Task.module.css";
+// import React from "react"
+// import styles from "./Task.module.css"
 //
 // const Task = ({ status, deleteTask, changeTaskStatus, id, name }) => {
 //     const handleCheckboxChange = () => {
 //         changeTaskStatus(id);
-//     };
+//     }
 //
 //     const handleDeleteClick = () => {
-//         deleteTask(id);
-//     };
+//         deleteTask(id)
+//     }
 //
 //     return (
 //         <li className={styles.li}>
@@ -22,7 +22,7 @@
 //                 x
 //             </button>
 //         </li>
-//     );
-// };
+//     )
+// }
 //
-// export default Task;
+// export default Task

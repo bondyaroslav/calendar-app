@@ -1,9 +1,13 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
 import styles from "./TaskList.module.css"
+import {useDispatch, useSelector} from "react-redux";
+import {addTaskAC, closeTaskListAC} from "../../redux/reducers/taskReducer";
 
 const TaskList = () => {
 
-    const tasks = []
+    const dispatch = useDispatch()
+    const isShowing = useSelector(state => state.taskList.isShowing)
+    const initialTasks = useSelector(state => state.taskList.tasks)
 
     const addTask = (name) => {
         let newTask = {
@@ -11,29 +15,35 @@ const TaskList = () => {
             name: name,
             status: false
         }
-        tasks.push(newTask)
-        console.log(tasks)
+        dispatch(addTaskAC(newTask))
+        console.log(initialTasks)
     }
 
     const deleteTask = () => {
 
     }
 
-    return (
-        <div className={styles.TaskList}>
-            <div className={styles.wrapper}>
-                <div className={styles.headerWrapper}>
-                    <div>current day</div>
-                    <button>close</button>
-                </div>
-                <input type="text"/>
-                <ul>
+    const closeTaskList = () => {
+        dispatch(closeTaskListAC())
+    }
 
-                </ul>
-                <button onClick={() => {addTask("name")}}>add task</button>
+    if (isShowing === true) {
+        return (
+            <div className={styles.TaskList}>
+                <div className={styles.wrapper}>
+                    <div className={styles.headerWrapper}>
+                        <div>current day</div>
+                        <button onClick={() => {closeTaskList()}}>close</button>
+                    </div>
+                    <input type="text"/>
+                    <ul>
+                        {initialTasks.map( task => <li key={task.id}>{task.name} - {task.id}</li>)}
+                    </ul>
+                    <button onClick={() => {addTask("name")}}>add task</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else return null
 }
 
 export default TaskList
