@@ -1,10 +1,9 @@
-import React, {useState} from "react"
+import React from "react"
 import styles from "./TaskList.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {addTaskAC, closeTaskListAC} from "../../redux/reducers/taskReducer";
+import {addTaskAC, closeTaskListAC, deleteTaskAC} from "../../redux/reducers/taskReducer";
 
 const TaskList = () => {
-
     const dispatch = useDispatch()
     const isShowing = useSelector(state => state.taskList.isShowing)
     const initialTasks = useSelector(state => state.taskList.tasks)
@@ -19,8 +18,8 @@ const TaskList = () => {
         console.log(initialTasks)
     }
 
-    const deleteTask = () => {
-
+    const deleteTask = (taskId) => {
+        dispatch(deleteTaskAC(taskId))
     }
 
     const closeTaskList = () => {
@@ -37,7 +36,7 @@ const TaskList = () => {
                     </div>
                     <input type="text"/>
                     <ul>
-                        {initialTasks.map( task => <li key={task.id}>{task.name} - {task.id}</li>)}
+                        {initialTasks.map( task => <li key={task.id}>{task.name} - {task.id}<button onClick={ () => {deleteTask(task.id)} }>x</button></li>)}
                     </ul>
                     <button onClick={() => {addTask("name")}}>add task</button>
                 </div>

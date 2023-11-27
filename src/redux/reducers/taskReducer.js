@@ -23,6 +23,10 @@ const taskReducer = (state = initialState, action) => {
         case ADD_TASK:
             return { ...state, tasks: [...state.tasks, action.task] }
 
+        case DELETE_TASK:
+            const updatedTasks = state.tasks.filter(task => task.id !== action.taskId);
+            return { ...state, tasks: updatedTasks }
+
         default:
             return state
     }
@@ -32,5 +36,6 @@ export const openTaskListAC = (id) => ({ type: OPEN_TASK_LIST, id })
 export const closeTaskListAC = () => ({ type: CLOSE_TASK_LIST })
 export const setTasksAC = (tasks) => ({ type: SET_TASKS, tasks })
 export const addTaskAC = (task) => ({ type: ADD_TASK, task })
+export const deleteTaskAC = (taskId) => ({ type: DELETE_TASK, taskId })
 
 export default taskReducer

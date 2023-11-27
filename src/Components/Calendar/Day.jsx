@@ -3,23 +3,12 @@ import styles from "./Day.module.css"
 import {useDispatch} from "react-redux";
 import {openTaskListAC, setTasksAC} from "../../redux/reducers/taskReducer";
 
-const Day = ({dayNumber, dayName, tasks, key}) => {
-
+const Day = ({dayNumber, dayName, tasks}) => {
     let dispatch = useDispatch()
-
-    // const openTaskList = () => {
-    //     const dayId = new Date().getTime() + dayNumber
-    //     dispatch(openTaskListAC(dayId))
-    //     const tasksForDay = tasks.filter((task) => task.dayId === dayId)
-    //     dispatch(setTasksAC(tasksForDay))
-    // }
 
     const openTaskList = () => {
         dispatch(openTaskListAC(), setTasksAC(tasks))
     }
-
-    // let dayId = new Date().getTime() + dayNumber
-    // console.log(dayId)
 
     return (
         <div className={styles.Day} onClick={ () => (openTaskList()) }>

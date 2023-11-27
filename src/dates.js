@@ -43,11 +43,7 @@ const createDay = (year, month, dayNumber) => {
     let day = {
         dayNumber,
         dayName: getDayName(year, month, dayNumber),
-        tasks: {
-            taskId: Number,
-            taskName: String,
-            taskStatus: Boolean //active or completed
-        }
+        tasks: []
     }
     return day
 }
