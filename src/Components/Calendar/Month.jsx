@@ -3,6 +3,7 @@ import styles from "./Month.module.css"
 import Day from "./Day"
 
 const Month = ({month}) => {
+
     return (
         <div className={styles.Month}>
             <div className={styles.wrapper}>
